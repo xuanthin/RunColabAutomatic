@@ -1,0 +1,21 @@
+name: Run Colab Notebook
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Chạy mỗi ngày vào 00:00 UTC
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Run Colab Notebook
+      run: |
+        pip install gdown
+        gdown --id YOUR_NOTEBOOK_ID -O notebook.ipynb
+        pip install nbconvert
+        jupyter nbconvert --to notebook --execute notebook.ipynb
