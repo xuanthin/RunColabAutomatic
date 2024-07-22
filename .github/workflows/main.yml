@@ -16,6 +16,8 @@ jobs:
     - name: Run Colab Notebook
       run: |
         pip install gdown
-        gdown --id YOUR_NOTEBOOK_ID -O notebook.ipynb
+        gdown --id 1_L7yzxe3T8h7l5MUQhmvv9lbdmxUntRV?usp=drive_link -O notebook.ipynb
         pip install nbconvert
         jupyter nbconvert --to notebook --execute notebook.ipynb
+
+
