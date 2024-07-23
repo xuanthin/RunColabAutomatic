@@ -7,7 +7,7 @@ on:
 
 jobs:
   run:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - name: Check out repository
@@ -21,6 +21,20 @@ jobs:
     - name: Install dependencies
       run: |
         pip install nbconvert selenium tweepy
+
+    - name: Download and set up ChromeDriver
+      run: |
+        curl -Lo chromedriver.zip https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_win32.zip
+        tar -xf chromedriver.zip
+        move chromedriver.exe C:\Windows\System32
+
+    - name: Download and install Google Chrome
+      run: |
+        curl -Lo googlechrome_installer.exe https://dl.google.com/chrome/install/375.126/chrome_installer.exe
+        start /wait googlechrome_installer.exe /silent /install
+
+    - name: Add Chrome to PATH
+      run: setx path "%path%;C:\Program Files\Google\Chrome\Application"
 
     - name: Run Colab Notebook
       run: |
