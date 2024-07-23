@@ -2,7 +2,7 @@ name: Run Colab Notebook
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # This cron expression runs the job every day at midnight UTC
+    - cron: '* * * * *'  # This cron expression runs the job every day at midnight UTC
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
