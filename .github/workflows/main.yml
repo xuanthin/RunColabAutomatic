@@ -32,7 +32,7 @@ jobs:
 
     - name: Run Colab Notebook
       run: |
-        jupyter nbconvert --to notebook --execute /content/drive/MyDrive/Colab Notebooks/Automation.ipynb
+        jupyter nbconvert --to notebook --execute /content/drive/MyDrive/  Colab Notebooks/Automation.ipynb
       # env:
       #   LINKEDIN_EMAIL: ${{ secrets.LINKEDIN_EMAIL }}
       #   LINKEDIN_PASSWORD: ${{ secrets.LINKEDIN_PASSWORD }}
