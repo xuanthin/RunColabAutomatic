@@ -28,10 +28,10 @@ jobs:
         tar -xf chromedriver.zip
         move chromedriver.exe C:\Windows\System32
 
-    - name: Download and install Google Chrome
-      run: |
-        curl -Lo googlechrome_installer.exe https://dl.google.com/chrome/install/375.126/chrome_installer.exe
-        start /wait googlechrome_installer.exe /silent /install
+    # - name: Download and install Google Chrome
+    #   run: |
+    #     curl -Lo googlechrome_installer.exe https://dl.google.com/chrome/install/375.126/chrome_installer.exe
+    #     start /wait googlechrome_installer.exe /silent /install
 
     - name: Add Chrome to PATH
       run: setx path "%path%;C:\Program Files\Google\Chrome\Application"
