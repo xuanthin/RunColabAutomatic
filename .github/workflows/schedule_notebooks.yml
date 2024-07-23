@@ -1,0 +1,36 @@
+name: Run Notebooks Daily
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Runs every day at 09:00 UTC
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  run-notebooks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install papermill
+
+    - name: Execute LinkedIn Connection Notebook
+      run: |
+        papermill LinkedIn_Connection.ipynb LinkedIn_Connection_output.ipynb
+
+    - name: Execute LinkedIn Messages Notebook
+      run: |
+        papermill LinkedIn_Messages.ipynb LinkedIn_Messages_output.ipynb
+
+    
+
+    # Add additional steps for Twitter, etc. if needed
