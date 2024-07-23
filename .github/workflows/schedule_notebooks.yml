@@ -2,7 +2,7 @@ name: Run Notebooks Daily
 
 on:
   schedule:
-    - cron: '* /5 * * *'  
+    - cron: '* /5 * * * *'  
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
