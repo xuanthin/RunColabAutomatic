@@ -1,4 +1,4 @@
-name: Run Notebooks Every 5 Minutes
+name: Run Notebooks vào khung giờ nhất định
 
 on:
   schedule:
