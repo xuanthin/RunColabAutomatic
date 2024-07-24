@@ -1,10 +1,8 @@
 name: Run Notebooks vào khung giờ nhất định
-
 on:
   schedule:
     - cron: '* 9 * * *'  # Runs 20m
   workflow_dispatch:  # Allows manual trigger
-
 jobs:
   run-notebooks:
     runs-on: windows-latest
@@ -12,12 +10,10 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.8'
-
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -25,18 +21,13 @@ jobs:
         pip install addon
         python3 -m pip install ipykernel
         python3 -m ipykernel install --user
-
     - name: Execute LinkedIn Connection Notebook
       run: |
         papermill LinkedIn_Connection.ipynb LinkedIn_Connection_output.ipynb
-
     - name: Execute LinkedIn Messages Notebook
       run: |
         papermill LinkedIn_Messages.ipynb LinkedIn_Messages_output.ipynb
-        
     - name: Execute Post Twitter Notebook
       run: |
         papermill Post_Twitter.ipynb Post_Twitter_output.ipynb
-
-
     # Add additional steps for Twitter, etc. if needed
