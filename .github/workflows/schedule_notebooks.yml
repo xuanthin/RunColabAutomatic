@@ -2,7 +2,7 @@ name: Run Notebooks Every 5 Minutes
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Runs every 5 minutes
+    - cron: '0 9 * * *'  # Runs 9h everyday
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
