@@ -1,7 +1,7 @@
 name: Run Notebooks vào khung giờ nhất định
 on:
   schedule:
-    - cron: '* 9 * * *'  # Runs 20m
+    - cron: '*/10 * * * *'  
   workflow_dispatch:  # Allows manual trigger
 jobs:
   run-notebooks:
